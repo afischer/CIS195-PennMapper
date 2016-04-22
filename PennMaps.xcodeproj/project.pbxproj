@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C037574F562CE12674DD275 /* libPods-PennMapsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4EAC8E44D3C4AD474F2FA2 /* libPods-PennMapsTests.a */; };
 		71D4F4EC1CC95C2900BF0834 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4EB1CC95C2900BF0834 /* main.m */; };
 		71D4F4EF1CC95C2900BF0834 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4EE1CC95C2900BF0834 /* AppDelegate.m */; };
 		71D4F4F21CC95C2900BF0834 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4F11CC95C2900BF0834 /* MapViewController.m */; };
@@ -15,6 +16,7 @@
 		71D4F4FA1CC95C2900BF0834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D4F4F81CC95C2900BF0834 /* LaunchScreen.storyboard */; };
 		71D4F5051CC95C2900BF0834 /* PennMapsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F5041CC95C2900BF0834 /* PennMapsTests.m */; };
 		71D4F5131CC95E0800BF0834 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D4F5121CC95E0800BF0834 /* MapKit.framework */; };
+		F96485085A2514510A415014 /* libPods-PennMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C29033368BA025D6F1A522 /* libPods-PennMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35C29033368BA025D6F1A522 /* libPods-PennMaps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PennMaps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D4F4E71CC95C2900BF0834 /* PennMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PennMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D4F4EB1CC95C2900BF0834 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		71D4F4ED1CC95C2900BF0834 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +45,11 @@
 		71D4F5041CC95C2900BF0834 /* PennMapsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PennMapsTests.m; sourceTree = "<group>"; };
 		71D4F5061CC95C2900BF0834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71D4F5121CC95E0800BF0834 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C57285EEC1234AE333D9534B /* Pods-PennMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PennMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-PennMaps/Pods-PennMaps.release.xcconfig"; sourceTree = "<group>"; };
+		CC2788FC447AE17FF59BF73D /* Pods-PennMapsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PennMapsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PennMapsTests/Pods-PennMapsTests.release.xcconfig"; sourceTree = "<group>"; };
+		D0D693CF4EF21872779D3BDA /* Pods-PennMapsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PennMapsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PennMapsTests/Pods-PennMapsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF4EAC8E44D3C4AD474F2FA2 /* libPods-PennMapsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PennMapsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF07CF5DBD2C0742CD597B86 /* Pods-PennMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PennMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PennMaps/Pods-PennMaps.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71D4F5131CC95E0800BF0834 /* MapKit.framework in Frameworks */,
+				F96485085A2514510A415014 /* libPods-PennMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,12 +66,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C037574F562CE12674DD275 /* libPods-PennMapsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F4D219694BFDC8D01D9A57B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35C29033368BA025D6F1A522 /* libPods-PennMaps.a */,
+				EF4EAC8E44D3C4AD474F2FA2 /* libPods-PennMapsTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		71D4F4DE1CC95C2900BF0834 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +89,8 @@
 				71D4F4E91CC95C2900BF0834 /* PennMaps */,
 				71D4F5031CC95C2900BF0834 /* PennMapsTests */,
 				71D4F4E81CC95C2900BF0834 /* Products */,
+				D844B1852A61A9F83A6E0A18 /* Pods */,
+				5F4D219694BFDC8D01D9A57B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +160,17 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		D844B1852A61A9F83A6E0A18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF07CF5DBD2C0742CD597B86 /* Pods-PennMaps.debug.xcconfig */,
+				C57285EEC1234AE333D9534B /* Pods-PennMaps.release.xcconfig */,
+				D0D693CF4EF21872779D3BDA /* Pods-PennMapsTests.debug.xcconfig */,
+				CC2788FC447AE17FF59BF73D /* Pods-PennMapsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71D4F5091CC95C2900BF0834 /* Build configuration list for PBXNativeTarget "PennMaps" */;
 			buildPhases = (
+				16E72796967DB3CAA087D319 /* 📦 Check Pods Manifest.lock */,
 				71D4F4E31CC95C2900BF0834 /* Sources */,
 				71D4F4E41CC95C2900BF0834 /* Frameworks */,
 				71D4F4E51CC95C2900BF0834 /* Resources */,
+				CB0478FA6B05FC5745375EE3 /* 📦 Embed Pods Frameworks */,
+				FB5C3CC137DF137FF9D86D5A /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71D4F50C1CC95C2900BF0834 /* Build configuration list for PBXNativeTarget "PennMapsTests" */;
 			buildPhases = (
+				CEFC4E0264AFEFCC3E4A1FF9 /* 📦 Check Pods Manifest.lock */,
 				71D4F4FC1CC95C2900BF0834 /* Sources */,
 				71D4F4FD1CC95C2900BF0834 /* Frameworks */,
 				71D4F4FE1CC95C2900BF0834 /* Resources */,
+				5D2882E9105B1675BE0B15BC /* 📦 Embed Pods Frameworks */,
+				E573E30DC0B32A5D592618D7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +272,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16E72796967DB3CAA087D319 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5D2882E9105B1675BE0B15BC /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PennMapsTests/Pods-PennMapsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB0478FA6B05FC5745375EE3 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PennMaps/Pods-PennMaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEFC4E0264AFEFCC3E4A1FF9 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E573E30DC0B32A5D592618D7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PennMapsTests/Pods-PennMapsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB5C3CC137DF137FF9D86D5A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PennMaps/Pods-PennMaps-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		71D4F4E31CC95C2900BF0834 /* Sources */ = {
@@ -368,6 +499,7 @@
 		};
 		71D4F50A1CC95C2900BF0834 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF07CF5DBD2C0742CD597B86 /* Pods-PennMaps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -381,6 +513,7 @@
 		};
 		71D4F50B1CC95C2900BF0834 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C57285EEC1234AE333D9534B /* Pods-PennMaps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -394,6 +527,7 @@
 		};
 		71D4F50D1CC95C2900BF0834 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0D693CF4EF21872779D3BDA /* Pods-PennMapsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PennMapsTests/Info.plist;
@@ -406,6 +540,7 @@
 		};
 		71D4F50E1CC95C2900BF0834 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC2788FC447AE17FF59BF73D /* Pods-PennMapsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PennMapsTests/Info.plist;
@@ -435,6 +570,7 @@
 				71D4F50B1CC95C2900BF0834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71D4F50C1CC95C2900BF0834 /* Build configuration list for PBXNativeTarget "PennMapsTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +579,7 @@
 				71D4F50E1CC95C2900BF0834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

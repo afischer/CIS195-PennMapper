@@ -1,0 +1,12 @@
+PODS:
+  - GeoJSONSerialization (0.0.4)
+
+DEPENDENCIES:
+  - GeoJSONSerialization (= 0.0.4)
+
+SPEC CHECKSUMS:
+  GeoJSONSerialization: 55a3d24fe9af26508e3af76873114b39b13ba479
+
+PODFILE CHECKSUM: 780aca731002290a0da6cd0f9cceeb9d87eeb9b5
+
+COCOAPODS: 1.0.0.beta.8
