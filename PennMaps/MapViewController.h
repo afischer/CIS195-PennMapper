@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MapViewController.h
 //  PennMaps
 //
 //  Created by Andrew Fischer on 4/21/16.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MapViewController : UIViewController
 
 @end
 
