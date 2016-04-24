@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C037574F562CE12674DD275 /* libPods-PennMapsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4EAC8E44D3C4AD474F2FA2 /* libPods-PennMapsTests.a */; };
+		7161EC991CCAED9400FA2877 /* map.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 7161EC981CCAED9400FA2877 /* map.geojson */; };
 		71D4F4EC1CC95C2900BF0834 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4EB1CC95C2900BF0834 /* main.m */; };
 		71D4F4EF1CC95C2900BF0834 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4EE1CC95C2900BF0834 /* AppDelegate.m */; };
 		71D4F4F21CC95C2900BF0834 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4F11CC95C2900BF0834 /* MapViewController.m */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		35C29033368BA025D6F1A522 /* libPods-PennMaps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PennMaps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7161EC981CCAED9400FA2877 /* map.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.geojson; sourceTree = "<group>"; };
 		71D4F4E71CC95C2900BF0834 /* PennMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PennMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D4F4EB1CC95C2900BF0834 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		71D4F4ED1CC95C2900BF0834 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		71D4F4EA1CC95C2900BF0834 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7161EC981CCAED9400FA2877 /* map.geojson */,
 				71D4F4EB1CC95C2900BF0834 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -258,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7161EC991CCAED9400FA2877 /* map.geojson in Resources */,
 				71D4F4FA1CC95C2900BF0834 /* LaunchScreen.storyboard in Resources */,
 				71D4F4F71CC95C2900BF0834 /* Assets.xcassets in Resources */,
 				71D4F4F51CC95C2900BF0834 /* Main.storyboard in Resources */,
