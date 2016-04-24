@@ -12,6 +12,7 @@ source 'https://github.com/IndoorAtlas/CocoaPods-Specs.git'
 target 'PennMaps' do
 #   pod 'IndoorAtlas', '2.1.1'
   pod 'GeoJSONSerialization', '0.0.4'
+  pod 'SMCalloutView', '2.1.5'
 end
 
 target 'PennMapsTests' do

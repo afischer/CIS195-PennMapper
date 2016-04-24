@@ -10,11 +10,16 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "GeoJSONSerialization.h"
+#import <SMCalloutView/SMCalloutView.h>
+
+static const CGFloat CalloutYOffset = 5.0f;
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) SMCalloutView *calloutView;
+@property (strong, nonatomic) UIView *emptyCalloutView;
 @property BOOL isUpdatingLocation;
 @end
 
@@ -26,6 +31,16 @@
     self.isUpdatingLocation = NO;
     
     [self setStatusBarBackgroundColor];
+    
+    // Testing UICallout View
+    self.calloutView = [[SMCalloutView alloc] init];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [button addTarget:self
+               action:@selector(calloutAccessoryButtonTapped:)
+     forControlEvents:UIControlEventTouchUpInside];
+    self.calloutView.rightAccessoryView = button;
+    self.emptyCalloutView = [[UIView alloc] initWithFrame:CGRectZero];
+
     
 }
 
@@ -190,6 +205,11 @@
             if(CGPathContainsPoint(mpr , NULL, mapPointAsCGP, FALSE)){
                 NSLog(@"Lat: %f, Lon: %f", polygon.coordinate.latitude, polygon.coordinate.longitude);
                 
+                [self createCalloutWithLatitude:polygon.coordinate.latitude withLongitude:polygon.coordinate.longitude];
+                
+                
+            } else {
+                self.calloutView.hidden = YES;
             }
             
             CGPathRelease(mpr);
@@ -197,5 +217,72 @@
     }
 }
 
+// CALLOUT VIEWS
+- (void)calloutAccessoryButtonTapped:(id)sender {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Title"
+                                                            message:@"Message"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+}
+
+
+
+#pragma mark - GMSMapViewDelegate
+
+- (UIView *)createCalloutWithLatitude:(float)latitude withLongitude:(float)longitude {
+    CLLocationCoordinate2D anchor = CLLocationCoordinate2DMake(latitude, longitude);
+    CGPoint point = [self.mapView convertCoordinate:anchor toPointToView:NULL];
+    
+    self.calloutView.title = @"Marker title";
+    
+    self.calloutView.calloutOffset = CGPointMake(0, -CalloutYOffset);
+    
+    self.calloutView.hidden = NO;
+    
+    CGRect calloutRect = CGRectZero;
+    calloutRect.origin = point;
+    calloutRect.size = CGSizeZero;
+    
+    [self.calloutView presentCalloutFromRect:calloutRect
+                                      inView:self.mapView
+                           constrainedToView:self.mapView
+                                    animated:YES];
+    
+    return self.emptyCalloutView;
+
+}
+
+
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+}
+
+//- (void)mapView:(GMSMapView *)pMapView didChangeCameraPosition:(GMSCameraPosition *)position {
+//    /* move callout with map drag */
+//    if (pMapView.selectedMarker != nil && !self.calloutView.hidden) {
+//        CLLocationCoordinate2D anchor = [pMapView.selectedMarker position];
+//        
+//        CGPoint arrowPt = self.calloutView.backgroundView.arrowPoint;
+//        
+//        CGPoint pt = [pMapView.projection pointForCoordinate:anchor];
+//        pt.x -= arrowPt.x;
+//        pt.y -= arrowPt.y + CalloutYOffset;
+//        
+//        self.calloutView.frame = (CGRect) {.origin = pt, .size = self.calloutView.frame.size };
+//    } else {
+//        self.calloutView.hidden = YES;
+//    }
+//}
+//
+//- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+//    self.calloutView.hidden = YES;
+//}
+//
+//- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
+//    /* don't move map camera to center marker on tap */
+//    mapView.selectedMarker = marker;
+//    return YES;
+//}
 
 @end

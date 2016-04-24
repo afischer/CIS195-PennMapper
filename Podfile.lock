@@ -1,12 +1,15 @@
 PODS:
   - GeoJSONSerialization (0.0.4)
+  - SMCalloutView (2.1.5)
 
 DEPENDENCIES:
   - GeoJSONSerialization (= 0.0.4)
+  - SMCalloutView (= 2.1.5)
 
 SPEC CHECKSUMS:
   GeoJSONSerialization: 55a3d24fe9af26508e3af76873114b39b13ba479
+  SMCalloutView: 5c0ee363dc8e7204b2fda17dfad38c93e9e23481
 
-PODFILE CHECKSUM: 780aca731002290a0da6cd0f9cceeb9d87eeb9b5
+PODFILE CHECKSUM: 930dfc51a958724bd3c647cf65490628abc8fedb
 
 COCOAPODS: 1.0.0.beta.8
