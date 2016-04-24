@@ -203,9 +203,28 @@ static const CGFloat CalloutYOffset = 5.0f;
             }
             
             if(CGPathContainsPoint(mpr , NULL, mapPointAsCGP, FALSE)){
-                NSLog(@"Lat: %f, Lon: %f", polygon.coordinate.latitude, polygon.coordinate.longitude);
+                // User tapped on building, show SMCalloutView w/ correct data
+                NSURL *URL = [[NSBundle mainBundle] URLForResource:@"map" withExtension:@"geojson"];
+                NSData *data = [NSData dataWithContentsOfURL:URL];
+                NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+                NSMutableArray *buildingList = [json objectForKey:@"features"];
+                for (NSArray *building in buildingList) {
+                    double lat = [[[building valueForKey:@"properties"] valueForKey:@"lat"] doubleValue];
+                    double lon = [[[building valueForKey:@"properties"] valueForKey:@"lon"] doubleValue];
+                    NSString *buildingName = [[building valueForKey:@"properties"] valueForKey:@"Name"];
+//                    NSLog(@"%f", lat);
+//                    NSLog(@"%f", polygon.coordinate.latitude);
+//                    NSLog(@"%f", lon);
+//                    NSLog(@"%f", polygon.coordinate.longitude);
+                    
+                    // Damn you, floating point math.
+                    if ((fabs(polygon.coordinate.latitude - lat) < 0.00001) && (fabs(polygon.coordinate.longitude - lon) < 0.00001)) {
+                        NSLog(@"FOUND BUILDING");
+                        [self createCalloutWithLatitude:polygon.coordinate.latitude withLongitude:polygon.coordinate.longitude withTitle:buildingName];
+                    }
+                }
+                NSLog(@"\"lat\": \"%f\", \n \"lon\": \"%f\"", polygon.coordinate.latitude, polygon.coordinate.longitude);
                 
-                [self createCalloutWithLatitude:polygon.coordinate.latitude withLongitude:polygon.coordinate.longitude];
                 
                 
             } else {
@@ -218,7 +237,9 @@ static const CGFloat CalloutYOffset = 5.0f;
 }
 
 // CALLOUT VIEWS
+
 - (void)calloutAccessoryButtonTapped:(id)sender {
+    NSLog(@"SEXEY");
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Title"
                                                             message:@"Message"
                                                            delegate:nil
@@ -228,14 +249,11 @@ static const CGFloat CalloutYOffset = 5.0f;
 }
 
 
-
-#pragma mark - GMSMapViewDelegate
-
-- (UIView *)createCalloutWithLatitude:(float)latitude withLongitude:(float)longitude {
+- (UIView *)createCalloutWithLatitude:(float)latitude withLongitude:(float)longitude withTitle:(NSString *)title {
     CLLocationCoordinate2D anchor = CLLocationCoordinate2DMake(latitude, longitude);
     CGPoint point = [self.mapView convertCoordinate:anchor toPointToView:NULL];
     
-    self.calloutView.title = @"Marker title";
+    self.calloutView.title = title;
     
     self.calloutView.calloutOffset = CGPointMake(0, -CalloutYOffset);
     
@@ -256,6 +274,10 @@ static const CGFloat CalloutYOffset = 5.0f;
 
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+    if (!self.calloutView.hidden){
+//        CLLocationCoordinate2D anchor =
+        // TODO: Figure out how to get markers to move correctly.
+    }
 }
 
 //- (void)mapView:(GMSMapView *)pMapView didChangeCameraPosition:(GMSCameraPosition *)position {
@@ -273,16 +295,6 @@ static const CGFloat CalloutYOffset = 5.0f;
 //    } else {
 //        self.calloutView.hidden = YES;
 //    }
-//}
-//
-//- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-//    self.calloutView.hidden = YES;
-//}
-//
-//- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
-//    /* don't move map camera to center marker on tap */
-//    mapView.selectedMarker = marker;
-//    return YES;
 //}
 
 @end

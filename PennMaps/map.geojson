@@ -4,8 +4,8 @@
     "type": "Feature",
     "properties": {
       "Name": "Houston Hall",
-      "lat": "39.950943",
-      "lon": "-75.193884"
+      "lat": "39.951449",
+      "lon": "-75.193768"
     },
     "geometry": {
       "type": "Polygon",
@@ -80,7 +80,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Claudia Cohen Hall"
+      "Name": "Claudia Cohen Hall",
+               "lat": "39.951361",
+               "lon": "-75.194749"
     },
     "geometry": {
       "type": "Polygon",
@@ -119,7 +121,10 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Franklin Field"
+      "Name": "Franklin Field",
+               "lat": "39.950029",
+               "lon": "-75.189933"
+
     },
     "geometry": {
       "type": "Polygon",
@@ -197,7 +202,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Weightman Hall"
+      "Name": "Weightman Hall",
+               "lat": "39.950629",
+               "lon": "-75.190758"
     },
     "geometry": {
       "type": "Polygon",
@@ -254,7 +261,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Dunning Coaches Building"
+      "Name": "Dunning Coaches Building",
+               "lat": "39.951052",
+               "lon": "-75.190353"
     },
     "geometry": {
       "type": "Polygon",
@@ -548,7 +557,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Williams Hall"
+      "Name": "Williams Hall",
+               "lat": "39.950990",
+               "lon": "-75.194822"
     },
     "geometry": {
       "type": "Polygon",
@@ -1358,7 +1369,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Museum Garage"
+      "Name": "Museum Garage",
+               "lat": "39.948611",
+               "lon": "-75.190411"
     },
     "geometry": {
       "type": "Polygon",
@@ -1385,7 +1398,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Penn Museum"
+      "Name": "Penn Museum of Archeology",
+               "lat": "39.949260",
+               "lon": "-75.191264"
     },
     "geometry": {
       "type": "Polygon",
@@ -2243,7 +2258,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "David Rittenhouse Laboratories"
+      "Name": "David Rittenhouse Laboratories",
+               "lat": "39.952082",
+               "lon": "-75.189213"
     },
     "geometry": {
       "type": "Polygon",
@@ -2300,7 +2317,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Class of 1923 Ice Rink"
+      "Name": "Class of 1923 Ice Rink",
+               "lat": "39.951720",
+               "lon": "-75.187023"
     },
     "geometry": {
       "type": "Polygon",
@@ -2333,7 +2352,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Levy Tennis Pavilion"
+      "Name": "Hecht Tennis Pavilion",
+               "lat": "39.950975",
+               "lon": "-75.187377"
     },
     "geometry": {
       "type": "Polygon",
@@ -2366,7 +2387,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Towne Building"
+      "Name": "Towne Building",
+               "lat": "39.951850",
+               "lon": "-75.190954"
     },
     "geometry": {
       "type": "Polygon",
@@ -2411,7 +2434,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Skirkanish Hall"
+      "Name": "Skirkanish Hall",
+               "lat": "39.952037",
+               "lon": "-75.190521"
     },
     "geometry": {
       "type": "Polygon",
@@ -2492,7 +2517,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "GRW"
+      "Name": "GRW",
+               "lat": "39.952433",
+               "lon": "-75.190862"
     },
     "geometry": {
       "type": "Polygon",
@@ -2537,7 +2564,9 @@
   }, {
     "type": "Feature",
     "properties": {
-      "Name": "Levine Hall"
+      "Name": "Levine Hall",
+               "lat": "39.952274",
+               "lon": "-75.191120"
     },
     "geometry": {
       "type": "Polygon",
