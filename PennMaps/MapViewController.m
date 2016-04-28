@@ -14,12 +14,15 @@
 
 static const CGFloat CalloutYOffset = 5.0f;
 
-@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIToolbarDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) SMCalloutView *calloutView;
+@property (nonatomic) CLLocationCoordinate2D calloutAnchor;
 @property (strong, nonatomic) UIView *emptyCalloutView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *trackingBtn;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbarTop;
 @property BOOL isUpdatingLocation;
 @end
 
@@ -29,19 +32,19 @@ static const CGFloat CalloutYOffset = 5.0f;
     [super viewDidLoad];
     [self  setUpMap];
     self.isUpdatingLocation = NO;
-    
-    [self setStatusBarBackgroundColor];
-    
+
+//    [self setStatusBarBackgroundColor];
+    [self.toolbarTop setDelegate:self];
     // Testing UICallout View
     self.calloutView = [[SMCalloutView alloc] init];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [button addTarget:self
-               action:@selector(calloutAccessoryButtonTapped:)
-     forControlEvents:UIControlEventTouchUpInside];
-    self.calloutView.rightAccessoryView = button;
+    UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disclosureTapped)]];
+    self.calloutView.rightAccessoryView = disclosure;
     self.emptyCalloutView = [[UIView alloc] initWithFrame:CGRectZero];
+}
 
-    
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
 }
 
 - (void)setStatusBarBackgroundColor {
@@ -110,8 +113,11 @@ static const CGFloat CalloutYOffset = 5.0f;
         [self.locationManager stopUpdatingLocation];
         [self.mapView setShowsUserLocation:NO];
         self.isUpdatingLocation = NO;
+        [self.trackingBtn setImage:[UIImage imageNamed:@"Location"]];
     } else {
         [self trackUser];
+        [self.trackingBtn setImage:[UIImage imageNamed:@"Locating"]];
+
     }
 }
 
@@ -220,7 +226,9 @@ static const CGFloat CalloutYOffset = 5.0f;
                     // Damn you, floating point math.
                     if ((fabs(polygon.coordinate.latitude - lat) < 0.00001) && (fabs(polygon.coordinate.longitude - lon) < 0.00001)) {
                         NSLog(@"FOUND BUILDING");
-                        [self createCalloutWithLatitude:polygon.coordinate.latitude withLongitude:polygon.coordinate.longitude withTitle:buildingName];
+                        [self createCalloutWithLatitude:polygon.coordinate.latitude
+                                          withLongitude:polygon.coordinate.longitude
+                                              withTitle:buildingName];
                     }
                 }
                 NSLog(@"\"lat\": \"%f\", \n \"lon\": \"%f\"", polygon.coordinate.latitude, polygon.coordinate.longitude);
@@ -239,24 +247,17 @@ static const CGFloat CalloutYOffset = 5.0f;
 // CALLOUT VIEWS
 
 - (void)calloutAccessoryButtonTapped:(id)sender {
-    NSLog(@"SEXEY");
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Title"
-                                                            message:@"Message"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+    NSLog(@"Tappy Tap");
 }
 
 
 - (UIView *)createCalloutWithLatitude:(float)latitude withLongitude:(float)longitude withTitle:(NSString *)title {
     CLLocationCoordinate2D anchor = CLLocationCoordinate2DMake(latitude, longitude);
     CGPoint point = [self.mapView convertCoordinate:anchor toPointToView:NULL];
+    self.calloutAnchor = anchor;
     
     self.calloutView.title = title;
-    
     self.calloutView.calloutOffset = CGPointMake(0, -CalloutYOffset);
-    
     self.calloutView.hidden = NO;
     
     CGRect calloutRect = CGRectZero;
@@ -275,26 +276,47 @@ static const CGFloat CalloutYOffset = 5.0f;
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
     if (!self.calloutView.hidden){
-//        CLLocationCoordinate2D anchor =
-        // TODO: Figure out how to get markers to move correctly.
+        if (!_timer) {
+            _timer = [NSTimer scheduledTimerWithTimeInterval:0.01f
+                                                      target:self
+                                                    selector:@selector(_timerFired:)
+                                                    userInfo:nil
+                                                     repeats:YES];
+        }
     }
 }
 
-//- (void)mapView:(GMSMapView *)pMapView didChangeCameraPosition:(GMSCameraPosition *)position {
-//    /* move callout with map drag */
-//    if (pMapView.selectedMarker != nil && !self.calloutView.hidden) {
-//        CLLocationCoordinate2D anchor = [pMapView.selectedMarker position];
-//        
-//        CGPoint arrowPt = self.calloutView.backgroundView.arrowPoint;
-//        
-//        CGPoint pt = [pMapView.projection pointForCoordinate:anchor];
-//        pt.x -= arrowPt.x;
-//        pt.y -= arrowPt.y + CalloutYOffset;
-//        
-//        self.calloutView.frame = (CGRect) {.origin = pt, .size = self.calloutView.frame.size };
-//    } else {
-//        self.calloutView.hidden = YES;
-//    }
-//}
+
+// TODO: Multithreading
+-(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    if ([_timer isValid]) {
+        [_timer invalidate];
+    }
+    _timer = nil;
+}
+
+- (void)_timerFired:(NSTimer *)timer {
+    if (!self.calloutView.hidden){
+        CLLocationCoordinate2D anchor = self.calloutAnchor;
+        CGPoint arrowPt = self.calloutView.backgroundView.arrowPoint;
+        
+        CGPoint point = [self.mapView convertCoordinate:anchor toPointToView:NULL];
+        
+        point.x -= arrowPt.x;
+        point.y -= arrowPt.y + CalloutYOffset;
+        
+        self.calloutView.frame = (CGRect) {.origin = point, .size = self.calloutView.frame.size };
+        // TODO: Figure out how to get markers to move correctly.
+    } else {
+        self.calloutView.hidden = YES;
+    }
+}
+
+- (void)disclosureTapped {
+    NSLog(@"TAP!");
+//        WHY DOESNT THIS WORK
+    [self performSegueWithIdentifier:@"buildingDetailSegue" sender:self];
+
+}
 
 @end

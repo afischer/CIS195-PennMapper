@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MapViewController : UIViewController
-
+{NSTimer *_timer;}
+- (void)_timerFired:(NSTimer *)timer;
 @end
 

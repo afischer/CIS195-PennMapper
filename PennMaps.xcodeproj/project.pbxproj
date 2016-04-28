@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		6C037574F562CE12674DD275 /* libPods-PennMapsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4EAC8E44D3C4AD474F2FA2 /* libPods-PennMapsTests.a */; };
+		710D27B11CCD565E00AE0A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710D27B01CCD565E00AE0A2B /* Assets.xcassets */; };
+		714318C81CCFE87A00AFE88E /* BuildingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 714318C71CCFE87A00AFE88E /* BuildingDetailViewController.m */; };
 		7161EC991CCAED9400FA2877 /* map.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 7161EC981CCAED9400FA2877 /* map.geojson */; };
 		71D4F4EC1CC95C2900BF0834 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4EB1CC95C2900BF0834 /* main.m */; };
 		71D4F4EF1CC95C2900BF0834 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4EE1CC95C2900BF0834 /* AppDelegate.m */; };
 		71D4F4F21CC95C2900BF0834 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4F11CC95C2900BF0834 /* MapViewController.m */; };
 		71D4F4F51CC95C2900BF0834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D4F4F31CC95C2900BF0834 /* Main.storyboard */; };
-		71D4F4F71CC95C2900BF0834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71D4F4F61CC95C2900BF0834 /* Assets.xcassets */; };
 		71D4F4FA1CC95C2900BF0834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D4F4F81CC95C2900BF0834 /* LaunchScreen.storyboard */; };
 		71D4F5051CC95C2900BF0834 /* PennMapsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F5041CC95C2900BF0834 /* PennMapsTests.m */; };
 		71D4F5131CC95E0800BF0834 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D4F5121CC95E0800BF0834 /* MapKit.framework */; };
+		71EB34541CCDBF0B00065CF1 /* buildingList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71EB34531CCDBF0B00065CF1 /* buildingList.txt */; };
 		F96485085A2514510A415014 /* libPods-PennMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C29033368BA025D6F1A522 /* libPods-PennMaps.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		35C29033368BA025D6F1A522 /* libPods-PennMaps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PennMaps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		710D27B01CCD565E00AE0A2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		714318C61CCFE87A00AFE88E /* BuildingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingDetailViewController.h; sourceTree = "<group>"; };
+		714318C71CCFE87A00AFE88E /* BuildingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingDetailViewController.m; sourceTree = "<group>"; };
 		7161EC981CCAED9400FA2877 /* map.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.geojson; sourceTree = "<group>"; };
 		71D4F4E71CC95C2900BF0834 /* PennMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PennMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D4F4EB1CC95C2900BF0834 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,13 +45,13 @@
 		71D4F4F01CC95C2900BF0834 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		71D4F4F11CC95C2900BF0834 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		71D4F4F41CC95C2900BF0834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		71D4F4F61CC95C2900BF0834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71D4F4F91CC95C2900BF0834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71D4F4FB1CC95C2900BF0834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71D4F5001CC95C2900BF0834 /* PennMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PennMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D4F5041CC95C2900BF0834 /* PennMapsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PennMapsTests.m; sourceTree = "<group>"; };
 		71D4F5061CC95C2900BF0834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71D4F5121CC95E0800BF0834 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		71EB34531CCDBF0B00065CF1 /* buildingList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildingList.txt; sourceTree = "<group>"; };
 		C57285EEC1234AE333D9534B /* Pods-PennMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PennMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-PennMaps/Pods-PennMaps.release.xcconfig"; sourceTree = "<group>"; };
 		CC2788FC447AE17FF59BF73D /* Pods-PennMapsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PennMapsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PennMapsTests/Pods-PennMapsTests.release.xcconfig"; sourceTree = "<group>"; };
 		D0D693CF4EF21872779D3BDA /* Pods-PennMapsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PennMapsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PennMapsTests/Pods-PennMapsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,9 +116,9 @@
 				71D4F50F1CC95C4200BF0834 /* Models */,
 				71D4F5101CC95C4800BF0834 /* Views */,
 				71D4F5111CC95C4D00BF0834 /* Controllers */,
-				71D4F4F61CC95C2900BF0834 /* Assets.xcassets */,
 				71D4F4FB1CC95C2900BF0834 /* Info.plist */,
 				71D4F4EA1CC95C2900BF0834 /* Supporting Files */,
+				710D27B01CCD565E00AE0A2B /* Assets.xcassets */,
 			);
 			path = PennMaps;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 		71D4F4EA1CC95C2900BF0834 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				71EB34531CCDBF0B00065CF1 /* buildingList.txt */,
 				7161EC981CCAED9400FA2877 /* map.geojson */,
 				71D4F4EB1CC95C2900BF0834 /* main.m */,
 			);
@@ -157,6 +163,8 @@
 			children = (
 				71D4F4ED1CC95C2900BF0834 /* AppDelegate.h */,
 				71D4F4EE1CC95C2900BF0834 /* AppDelegate.m */,
+				714318C61CCFE87A00AFE88E /* BuildingDetailViewController.h */,
+				714318C71CCFE87A00AFE88E /* BuildingDetailViewController.m */,
 				71D4F4F01CC95C2900BF0834 /* MapViewController.h */,
 				71D4F4F11CC95C2900BF0834 /* MapViewController.m */,
 			);
@@ -229,7 +237,7 @@
 				TargetAttributes = {
 					71D4F4E61CC95C2900BF0834 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = N4963EZCDT;
+						DevelopmentTeam = VJ2YH44BQ3;
 					};
 					71D4F4FF1CC95C2900BF0834 = {
 						CreatedOnToolsVersion = 7.3;
@@ -261,9 +269,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71EB34541CCDBF0B00065CF1 /* buildingList.txt in Resources */,
 				7161EC991CCAED9400FA2877 /* map.geojson in Resources */,
 				71D4F4FA1CC95C2900BF0834 /* LaunchScreen.storyboard in Resources */,
-				71D4F4F71CC95C2900BF0834 /* Assets.xcassets in Resources */,
+				710D27B11CCD565E00AE0A2B /* Assets.xcassets in Resources */,
 				71D4F4F51CC95C2900BF0834 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71D4F4F21CC95C2900BF0834 /* MapViewController.m in Sources */,
+				714318C81CCFE87A00AFE88E /* BuildingDetailViewController.m in Sources */,
 				71D4F4EF1CC95C2900BF0834 /* AppDelegate.m in Sources */,
 				71D4F4EC1CC95C2900BF0834 /* main.m in Sources */,
 			);

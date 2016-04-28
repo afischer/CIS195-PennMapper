@@ -24,20 +24,13 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zUw-EE-qF0"/>
                                     <barButtonItem image="Location" id="2xV-PP-9xQ">
+                                        <color key="tintColor" red="0.0039215686269999999" green="0.1215686275" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="userDidToggleTracking:" destination="BYZ-38-t0r" id="1pf-Ms-aot"/>
+                                            <action selector="userDidToggleTracking:" destination="BYZ-38-t0r" id="Ve6-Jh-7YM"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.0039215686269999999" green="0.1215686275" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CzF-xf-LKH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem image="Directions" id="KNL-By-Es2">
-                                        <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </barButtonItem>
-                                </items>
                             </toolbar>
                             <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="7yt-Fh-gZp">
                                 <rect key="frame" x="39" y="20" width="296" height="44"/>
@@ -46,6 +39,14 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="U7h-Kh-T66"/>
                                 </connections>
                             </searchBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CzF-xf-LKH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem image="Directions" id="KNL-By-Es2">
+                                        <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -55,11 +56,56 @@
                     <connections>
                         <outlet property="mapView" destination="scR-Om-9U8" id="IVO-cP-cRZ"/>
                         <outlet property="searchBar" destination="7yt-Fh-gZp" id="BV2-Mg-qcE"/>
+                        <outlet property="toolbarTop" destination="CzF-xf-LKH" id="dOF-Lf-NV1"/>
+                        <outlet property="trackingBtn" destination="2xV-PP-9xQ" id="4V7-X3-3Ji"/>
+                        <segue destination="DQX-UZ-zit" kind="show" identifier="buildingDetailSegue" action="showDetailViewController:sender:" id="sxU-u5-WTc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="152.5" y="545.5"/>
+            <point key="canvasLocation" x="137.5" y="550.5"/>
+        </scene>
+        <!--Building Detail View-->
+        <scene sceneID="0Lt-hT-Quv">
+            <objects>
+                <viewController id="DQX-UZ-zit" userLabel="Building Detail View" customClass="BuildingDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MfF-TE-Wwl"/>
+                        <viewControllerLayoutGuide type="bottom" id="mdq-0p-DT5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3vt-rb-2kv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZ9-Us-e1V">
+                                <rect key="frame" x="0.0" y="64" width="375" height="180"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Building Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BmA-jc-dNx">
+                                <rect key="frame" x="38" y="96" width="299" height="57"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Information about this building" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="LT8-cr-srj">
+                                <rect key="frame" x="38" y="150" width="299" height="73"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JIK-Gx-zE7"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9fd-jL-42J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628.5" y="550.5"/>
         </scene>
     </scenes>
     <resources>
