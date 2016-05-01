@@ -10,4 +10,9 @@
 
 @interface BuildingDetailViewController : UIViewController
 
+@property (strong, nonatomic) NSString *buildingName;
+@property (strong, nonatomic) NSString *buildingDesc;
+@property (strong, nonatomic) UIImage *buildingImg;
+
+
 @end

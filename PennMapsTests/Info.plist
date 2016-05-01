@@ -22,5 +22,7 @@
 	<string>1</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to track you.</string>
 </dict>
 </plist>

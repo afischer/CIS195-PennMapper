@@ -1,11 +1,10 @@
 3600 Civic Center Boulevard Garage
-36th Street, 133 South
 36th Street, 20 South
 36th Street, 250 South
 37th Street, 118 South
 38th Street, 111 South
 40th Street, 220 South
-Anatomy Chemistry Building of the School of Medicine
+Anatomy Chemistry Building
 Andrew Mutch Building
 Annenberg Center for the Performing Arts
 Annenberg Public Policy Center
@@ -49,7 +48,7 @@ Dunning Coaches' Center, James D.
 Evans Building
 Evo at Cira Center South
 Fagin Hall, Claire M.
-Fisher - Bennett Hall
+Fisher-Bennett Hall
 Fisher Fine Arts Library, Anne and Jerome
 FMC Tower at Cira Centre South
 Fox-Fels Hall
@@ -61,7 +60,7 @@ Gittis Hall
 Goddard Laboratories
 Goldie Paley Memorial Bridge
 Golkin Hall
-Graduate Research Wing of the Moore School
+Graduate Research Wing
 Graduate School of Education Building
 Grays Ferry Avenue, 3401 (Pennovation Works)
 Greenfield Intercultural Center
@@ -73,7 +72,7 @@ Highline Park
 Hill College House
 Hill Pavilion, Vernon and Shirley
 Hill Square
-Hillel at Steinhardt Hall
+Hillel
 Hollenback Annex
 Hollenback Center
 Hospital of the University of Pennsylvania
@@ -101,14 +100,13 @@ Left Bank, The
 Leidy Laboratories of Biology
 Lerner Center
 Levin Building, Stephen A.
-Levine Hall, Melvin and Claire - Weiss Tech House
+Levine Hall, Melvin and Claire
 Levy Center for Oral Health Research
 Locust House
 Locust Walk, 3537
 Locust Walk, 3609-11
 Locust Walk, 3615
 Locust Walk, 3619
-Locust Walk, 3803
 Mabel Pew Myrin Pavilion
 Market Street, 3401
 Market Street, 3440
@@ -124,13 +122,13 @@ McNeil Building
 McNeil Center for Early American Studies
 Medical Arts Building
 Medical Office Building
-Meiklejohn Stadium - Murphy Field
+Meiklejohn Stadium-Murphy Field
 Meyerson Hall
 Module 7 Utility Building
-Moore School Building
+Moore Building
 Morgan Building
 Museum Academic Wing, University
-Museum of Archaeology and Anthropology, University of Pennsylvania
+Museum of Archaeology and Anthropology
 New College House at Hill Field
 New Patient Pavilion
 Newman Center
@@ -149,7 +147,7 @@ Parking Garage: Walnut 38
 Parking Garage: Walnut 40
 Penn Center for Rehabilitation and Care
 Penn Children's Center
-Penn Dental at the Schattner Center
+Schattner Center
 Penn Dental Center at University City
 Penn Dental Research Greenhouse
 Penn Medicine University City
@@ -177,7 +175,7 @@ Roberts Proton Therapy Center
 Rodin College House
 Rosenthal Building, The Gladys Hall
 Rotunda
-Ryan Veterinary Hospital of the University of Pennsylvania
+Ryan Veterinary Hospital
 Sadie Tanner Mossell Alexander School
 Sansom Place East
 Sansom Place West
@@ -197,8 +195,8 @@ Spruce House
 Spruce Street, 3905
 St. Leonard's Complex
 Steinberg Conference Center
-Steinberg Hall - Dietrich Hall
-Stellar - Chance Laboratories
+Steinberg-Dietrich Hall
+Stellar-Chance Laboratories
 Stemmler Hall, Edward J.
 Stiteler Hall
 Stouffer College House
@@ -208,7 +206,7 @@ Tanenbaum Hall, Nicole E.
 Towne Building
 Translational Research Laboratory
 Vagelos Laboratories of the IAST, Roy and Diana
-Van Pelt - Dietrich Library Center
+Van Pelt-Dietrich Library Center
 Van Pelt Manor (Gregory College House)
 Vance Hall
 Veterinary Medicine Old Quadrangle

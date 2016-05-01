@@ -11,11 +11,15 @@
 #import <CoreLocation/CoreLocation.h>
 #import "GeoJSONSerialization.h"
 #import <SMCalloutView/SMCalloutView.h>
+#import "BuildingDetailViewController.h"
+#import "MapManipulations.h"
+
 
 static const CGFloat CalloutYOffset = 5.0f;
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIToolbarDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) MapManipulations *manipulations;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) SMCalloutView *calloutView;
@@ -23,39 +27,37 @@ static const CGFloat CalloutYOffset = 5.0f;
 @property (strong, nonatomic) UIView *emptyCalloutView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *trackingBtn;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbarTop;
+@property (nonatomic) CGPoint point;
 @property BOOL isUpdatingLocation;
+@property BOOL isPlacingBusPins;
 @end
 
 @implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self  setUpMap];
     self.isUpdatingLocation = NO;
+    self.manipulations = [[MapManipulations alloc]init];
+    self.locationManager.delegate = self;
+    [self.locationManager requestWhenInUseAuthorization];
+    [self  setUpMap];
 
-//    [self setStatusBarBackgroundColor];
-    [self.toolbarTop setDelegate:self];
+    
     // Testing UICallout View
     self.calloutView = [[SMCalloutView alloc] init];
     UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     [disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disclosureTapped)]];
     self.calloutView.rightAccessoryView = disclosure;
     self.emptyCalloutView = [[UIView alloc] initWithFrame:CGRectZero];
-}
-
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
-    return UIBarPositionTopAttached;
-}
-
-- (void)setStatusBarBackgroundColor {
-    // Jesus there has to be a better way to do this
-    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
     
-    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
-        statusBar.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    }
-    statusBar.alpha = 0.75;
+    self.searchBar = [[UISearchBar alloc] init];
+    [self.searchBar sizeToFit];
+    self.searchBar.delegate = self;
+    self.navigationItem.titleView = self.searchBar;
+    self.searchBar.barStyle = UISearchBarStyleMinimal;
 }
+
+
 // Set up map to inital state for app
 - (void)setUpMap {
     self.mapView.delegate = self;
@@ -66,7 +68,6 @@ static const CGFloat CalloutYOffset = 5.0f;
     [self.mapView setRegion:viewRegion];
     [self.mapView setShowsBuildings:NO];
     [self.mapView setShowsPointsOfInterest:NO];
-
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
     tap.cancelsTouchesInView = NO;
@@ -92,13 +93,56 @@ static const CGFloat CalloutYOffset = 5.0f;
             [self.mapView addOverlay:(id <MKOverlay>)shape];
         }
     }
+    
+    [self showBusLines];
+}
 
+- (void)showBusLines {
+    self.isPlacingBusPins = YES;
+    dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+    dispatch_async(backgroundQueue, ^{
+        NSDictionary *lines = [[self.manipulations getPennBusLines] valueForKey:@"result_data"];
+        for (NSDictionary *route in lines){
+            NSString *routeName = [route valueForKey:@"route_name"];
+            NSDictionary *stops = [route valueForKey:@"stops"];
+            for (NSDictionary *stop in stops) {
+                float stopLat = [[stop valueForKey:@"Latitude"] floatValue];
+                float stopLon = [[stop valueForKey:@"Longitude"] floatValue];
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    annotation.coordinate = CLLocationCoordinate2DMake(stopLat, stopLon);
+                    annotation.title = [stop valueForKey:@"BusStopName"];
+                    annotation.subtitle = routeName;
+                    [self.mapView addAnnotation:annotation];
+
+                });
+            }
+        }
+    });
+    self.isPlacingBusPins = NO;
+}
+
+#pragma mark - MKMapViewDelegate
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    // create a proper annotation view, be lazy and don't use the reuse identifier
+    MKAnnotationView *view = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                                          reuseIdentifier:@"identifier"];
+
+    view.enabled = YES;
+    view.canShowCallout = YES;
+    
+    if (self.isPlacingBusPins) {
+        view.image = [UIImage imageNamed:@"BlueBus"];
+    } else {
+        view.image = [UIImage imageNamed:@"RedBus"];
+    }
+    
+    return view;
 }
 
 - (void)trackUser {
     self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
 
     [self.mapView setShowsUserLocation:YES];
@@ -121,7 +165,7 @@ static const CGFloat CalloutYOffset = 5.0f;
     }
 }
 
--(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     NSLog(@"hi");
     [searchBar resignFirstResponder];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -218,10 +262,6 @@ static const CGFloat CalloutYOffset = 5.0f;
                     double lat = [[[building valueForKey:@"properties"] valueForKey:@"lat"] doubleValue];
                     double lon = [[[building valueForKey:@"properties"] valueForKey:@"lon"] doubleValue];
                     NSString *buildingName = [[building valueForKey:@"properties"] valueForKey:@"Name"];
-//                    NSLog(@"%f", lat);
-//                    NSLog(@"%f", polygon.coordinate.latitude);
-//                    NSLog(@"%f", lon);
-//                    NSLog(@"%f", polygon.coordinate.longitude);
                     
                     // Damn you, floating point math.
                     if ((fabs(polygon.coordinate.latitude - lat) < 0.00001) && (fabs(polygon.coordinate.longitude - lon) < 0.00001)) {
@@ -232,13 +272,10 @@ static const CGFloat CalloutYOffset = 5.0f;
                     }
                 }
                 NSLog(@"\"lat\": \"%f\", \n \"lon\": \"%f\"", polygon.coordinate.latitude, polygon.coordinate.longitude);
-                
-                
-                
+
             } else {
                 self.calloutView.hidden = YES;
             }
-            
             CGPathRelease(mpr);
         }
     }
@@ -246,9 +283,6 @@ static const CGFloat CalloutYOffset = 5.0f;
 
 // CALLOUT VIEWS
 
-- (void)calloutAccessoryButtonTapped:(id)sender {
-    NSLog(@"Tappy Tap");
-}
 
 
 - (UIView *)createCalloutWithLatitude:(float)latitude withLongitude:(float)longitude withTitle:(NSString *)title {
@@ -277,7 +311,7 @@ static const CGFloat CalloutYOffset = 5.0f;
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
     if (!self.calloutView.hidden){
         if (!_timer) {
-            _timer = [NSTimer scheduledTimerWithTimeInterval:0.01f
+            _timer = [NSTimer scheduledTimerWithTimeInterval:0.06f
                                                       target:self
                                                     selector:@selector(_timerFired:)
                                                     userInfo:nil
@@ -297,16 +331,27 @@ static const CGFloat CalloutYOffset = 5.0f;
 
 - (void)_timerFired:(NSTimer *)timer {
     if (!self.calloutView.hidden){
-        CLLocationCoordinate2D anchor = self.calloutAnchor;
-        CGPoint arrowPt = self.calloutView.backgroundView.arrowPoint;
         
-        CGPoint point = [self.mapView convertCoordinate:anchor toPointToView:NULL];
-        
-        point.x -= arrowPt.x;
-        point.y -= arrowPt.y + CalloutYOffset;
-        
-        self.calloutView.frame = (CGRect) {.origin = point, .size = self.calloutView.frame.size };
         // TODO: Figure out how to get markers to move correctly.
+        
+        dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 2);
+        dispatch_async(backgroundQueue, ^{
+            CLLocationCoordinate2D anchor = self.calloutAnchor;
+            CGPoint arrowPt = self.calloutView.backgroundView.arrowPoint;
+            
+            self.point = [self.mapView convertCoordinate:anchor toPointToView:NULL];
+            
+            CGPoint temp = self.point;
+            temp.x -= arrowPt.x;
+            temp.y -= arrowPt.y + CalloutYOffset;
+            self.point = temp;
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.calloutView.frame = (CGRect) {.origin = self.point, .size = self.calloutView.frame.size };
+
+            });
+        });
+        
     } else {
         self.calloutView.hidden = YES;
     }
@@ -314,8 +359,15 @@ static const CGFloat CalloutYOffset = 5.0f;
 
 - (void)disclosureTapped {
     NSLog(@"TAP!");
-//        WHY DOESNT THIS WORK
-    [self performSegueWithIdentifier:@"buildingDetailSegue" sender:self];
+    // Initialize View Controller
+    BuildingDetailViewController *detailView = [self.storyboard instantiateViewControllerWithIdentifier:@"BuildingDetailView"];
+    
+    NSString *buildingName = self.calloutView.title;
+    detailView.buildingName = buildingName;
+    NSDictionary *details = [self.manipulations getBuildingWithName:buildingName];
+    detailView.buildingDesc = [details valueForKeyPath:@"description"];
+    detailView.buildingImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://www.geoguessr.com/images/dd05effb76800125147b1b4b86956f0c.jpg"]]];
+    [self.navigationController pushViewController:detailView animated:YES];
 
 }
 
