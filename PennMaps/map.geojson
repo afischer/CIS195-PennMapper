@@ -382,7 +382,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Hayden Hall"
+                 "Name": "Hayden Hall",
+                 "lat": "39.951231",
+                 "lon": "-75.191281"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -447,7 +449,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Vagelos Laboratories of the IAST, Roy and Diana"
+                 "Name": "Vagelos Laboratories of the IAST, Roy and Diana",
+                 "lat": "39.951320",
+                 "lon": "-75.192119"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -480,7 +484,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Chemistry Laboratories: 1973 Wing"
+                 "Name": "Chemistry Laboratories: 1973 Wing",
+                 "lat": "39.950795",
+                 "lon": "-75.192197"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -533,7 +539,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Chemistry Laboratories: Cret Wing"
+                 "Name": "Chemistry Laboratories: Cret Wing",
+                 "lat": "39.950666",
+                 "lon": "-75.191879"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -578,7 +586,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Chemistry Laboratories: 1958 Wing"
+                 "Name": "Chemistry Laboratories: 1958 Wing",
+                 "lat": "39.950880",
+                 "lon": "-75.191698"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -1059,7 +1069,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Meyerson Hall"
+                 "Name": "Meyerson Hall",
+                 "lat": "39.952251",
+                 "lon": "-75.192664"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -1124,7 +1136,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Van Pelt-Dietrich Library Center"
+                 "Name": "Van Pelt-Dietrich Library Center",
+                 "lat": "39.952707",
+                 "lon": "-75.193935"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -1189,7 +1203,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Steinberg-Dietrich Hall"
+                 "Name": "Steinberg-Dietrich Hall",
+                 "lat": "39.951798",
+                 "lon": "-75.196328"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -1423,7 +1439,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Stellar-Chance Laboratories"
+                 "Name": "Stellar-Chance Laboratories",
+                 "lat": "39.948729",
+                 "lon": "-75.196882"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -1456,7 +1474,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Blockley Hall"
+                 "Name": "Blockley Hall",
+                 "lat": "39.948528",
+                 "lon": "-75.197365"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -1493,7 +1513,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Clinical Research Building"
+                 "Name": "Clinical Research Building",
+                 "lat": "39.948849",
+                 "lon": "-75.195350"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -1542,7 +1564,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Stemmler Hall, Edward J."
+                 "Name": "Stemmler Hall, Edward J.",
+                 "lat": "39.949461",
+                 "lon": "-75.194881"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -1591,7 +1615,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Johnson Pavilion, Robert Wood"
+                 "Name": "Johnson Pavilion, Robert Wood",
+                 "lat": "39.949516",
+                 "lon": "-75.195671"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -2010,7 +2036,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "John Morgan Building"
+                 "Name": "John Morgan Building",
+                 "lat": "39.949554",
+                 "lon": "-75.196784"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -2087,7 +2115,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Anatomy Chemistry Building"
+                 "Name": "Anatomy Chemistry Building",
+                 "lat": "39.949039",
+                 "lon": "-75.197244"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -2200,7 +2230,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Goddard Laboratories"
+                 "Name": "Goddard Laboratories",
+                 "lat": "39.949727",
+                 "lon": "-75.197924"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -2772,7 +2804,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Stouffer College House"
+                 "Name": "Stouffer College House",
+                 "lat": "39.950835",
+                 "lon": "-75.198588"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -2901,7 +2935,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Hill College House"
+                 "Name": "Hill College House",
+                 "lat": "39.952994",
+                 "lon": "-75.190620"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -3225,7 +3261,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Moore Building"
+                 "Name": "Moore Building",
+                 "lat": "39.952341",
+                 "lon": "-75.190501"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -3368,7 +3406,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Fisher-Bennett Hall"
+                 "Name": "Fisher-Bennett Hall",
+                 "lat": "39.952451",
+                 "lon": "-75.191658"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -3433,7 +3473,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Lerner Center"
+                 "Name": "Lerner Center",
+                 "lat": "39.952119",
+                 "lon": "-75.191845"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -3482,7 +3524,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Morgan Building"
+                 "Name": "Morgan Building",
+                 "lat": "39.951862",
+                 "lon": "-75.192014"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -3531,7 +3575,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Penn Transplant House"
+                 "Name": "Penn Transplant House",
+                 "lat": "39.951421",
+                 "lon": "-75.202663"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -3564,7 +3610,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Van Pelt Manor (Gregory College House)"
+                 "Name": "Van Pelt Manor (Gregory College House)",
+                 "lat": "39.951879",
+                 "lon": "-75.202449"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -3597,7 +3645,9 @@
                  {
                  "type": "Feature",
                  "properties": {
-                 "Name": "Class of 1925 (Gregory College House)"
+                 "Name": "Class of 1925 (Gregory College House)",
+                 "lat": "39.952467",
+                 "lon": "-75.202568"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -4855,7 +4905,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Civic House"
+                 "Name": "Civic House",
+                 "lat": "39.952461",
+                 "lon": "-75.201507"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -4947,7 +4999,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Spruce Street, 3905"
+                 "Name": "Spruce Street, 3905",
+                 "lat": "39.951893",
+                 "lon": "-75.201678"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5017,7 +5071,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Harrison College House"
+                 "Name": "Harrison College House",
+                 "lat": "39.951936",
+                 "lon": "-75.201128"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5079,7 +5135,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Mayer Residence Hall (Stouffer College House)"
+                 "Name": "Mayer Residence Hall (Stouffer College House)",
+                 "lat": "39.951594",
+                 "lon": "-75.200255"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5117,7 +5175,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Parking Garage: Spruce 38"
+                 "Name": "Parking Garage: Spruce 38",
+                 "lat": "39.951826",
+                 "lon": "-75.199506"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5175,7 +5235,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Class of 1920 Commons"
+                 "Name": "Class of 1920 Commons",
+                 "lat": "39.952342",
+                 "lon": "-75.199415"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5237,7 +5299,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Harnwell College House"
+                 "Name": "Harnwell College House",
+                 "lat": "39.952380",
+                 "lon": "-75.200171"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5291,7 +5355,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Ryan Veterinary Hospital"
+                 "Name": "Ryan Veterinary Hospital",
+                 "lat": "39.950529",
+                 "lon": "-75.201098"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5377,7 +5443,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Veterinary Medicine Old Quadrangle"
+                 "Name": "Veterinary Medicine Old Quadrangle",
+                 "lat": "39.950569",
+                 "lon": "-75.200229"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5447,7 +5515,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Rosenthal Building, The Gladys Hall"
+                 "Name": "Rosenthal Building, The Gladys Hall",
+                 "lat": "39.951092",
+                 "lon": "-75.199934"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5501,7 +5571,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Hill Pavilion, Vernon and Shirley"
+                 "Name": "Hill Pavilion, Vernon and Shirley",
+                 "lat": "39.949946",
+                 "lon": "-75.200224"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5603,7 +5675,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Leidy Laboratories of Biology"
+                 "Name": "Leidy Laboratories of Biology",
+                 "lat": "39.949856",
+                 "lon": "-75.199030"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5677,7 +5751,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Levin Building, Stephen A."
+                 "Name": "Levin Building, Stephen A.",
+                 "lat": "39.949568",
+                 "lon": "-75.199062"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5731,7 +5807,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Carolyn Lynch Laboratory"
+                 "Name": "Carolyn Lynch Laboratory",
+                 "lat": "39.948773",
+                 "lon": "-75.198800"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5801,7 +5879,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Parking Garage: Curie"
+                 "Name": "Parking Garage: Curie",
+                 "lat": "39.947853",
+                 "lon": "-75.197052"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -5839,7 +5919,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Biomedical Research Building"
+                 "Name": "Biomedical Research Building",
+                 "lat": "39.948173",
+                 "lon": "-75.196451"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -6853,7 +6935,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Penn Medicine University City"
+                 "Name": "Penn Medicine University City",
+                 "lat": "39.957045",
+                 "lon": "-75.197539"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -6899,7 +6983,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Market Street, 3701"
+                 "Name": "Market Street, 3701",
+                 "lat": "39.956849",
+                 "lon": "-75.196057"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -6975,7 +7061,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Market Street, 3535"
+                 "Name": "Market Street, 3535",
+                 "lat": "39.956559",
+                 "lon": "-75.193721"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -7013,7 +7101,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Market Street, 3401"
+                 "Name": "Market Street, 3401",
+                 "lat": "39.956312",
+                 "lon": "-75.191761"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -7059,7 +7149,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Market Street, 3440"
+                 "Name": "Market Street, 3440",
+                 "lat": "39.955651",
+                 "lon": "-75.192368"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -7097,7 +7189,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Sheraton University City"
+                 "Name": "Sheraton University City",
+                 "lat": "39.955007",
+                 "lon": "-75.193963"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -7143,7 +7237,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Domus"
+                 "Name": "Domus",
+                 "lat": "39.954876",
+                 "lon": "-75.192702"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -7267,7 +7363,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Penn Center for Rehabilitation and Care"
+                 "Name": "Penn Center for Rehabilitation and Care",
+                 "lat": "39.954945",
+                 "lon": "-75.194843"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -7325,7 +7423,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Ralston House"
+                 "Name": "Ralston House",
+                 "lat": "39.955306",
+                 "lon": "-75.195366"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -7379,7 +7479,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "International House Philadelphia"
+                 "Name": "International House Philadelphia",
+                 "lat": "39.955365",
+                 "lon": "-75.196978"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -7703,7 +7805,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "40th Street, 220 South"
+                 "Name": "40th Street, 220 South",
+                 "lat": "39.955239",
+                 "lon": "-75.194641"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8161,7 +8265,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Huntsman Hall, Jon M."
+                 "Name": "Huntsman Hall, Jon M.",
+                 "lat": "39.952969",
+                 "lon": "-75.198231"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8283,7 +8389,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Solomon Laboratories of Experimental Psychology, Richard L."
+                 "Name": "Solomon Laboratories of Experimental Psychology, Richard L.",
+                 "lat": "39.952909",
+                 "lon": "-75.197719"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8321,7 +8429,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Caster Building"
+                 "Name": "Caster Building",
+                 "lat": "39.952525",
+                 "lon": "-75.197531"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8359,7 +8469,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Graduate School of Education Building"
+                 "Name": "Graduate School of Education Building",
+                 "lat": "39.953244",
+                 "lon": "-75.197255"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8451,7 +8563,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Annenberg Center for the Performing Arts"
+                 "Name": "Annenberg Center for the Performing Arts",
+                 "lat": "39.952947",
+                 "lon": "-75.196454"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8557,7 +8671,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Locust House"
+                 "Name": "Locust House",
+                 "lat": "39.952418",
+                 "lon": "-75.196781"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8595,7 +8711,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Colonial Penn Center"
+                 "Name": "Colonial Penn Center",
+                 "lat": "39.952433",
+                 "lon": "-75.196583"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8633,7 +8751,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Annenberg School for Communication"
+                 "Name": "Annenberg School for Communication",
+                 "lat": "39.952859",
+                 "lon": "-75.195786"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8715,7 +8835,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Charles Addams Fine Arts Hall"
+                 "Name": "Charles Addams Fine Arts Hall",
+                 "lat": "39.952947",
+                 "lon": "-75.195137"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8753,7 +8875,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Annenberg Public Policy Center"
+                 "Name": "Annenberg Public Policy Center",
+                 "lat": "39.952638",
+                 "lon": "-75.195232"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8791,7 +8915,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Locust Walk, 3619"
+                 "Name": "Locust Walk, 3619",
+                 "lat": "39.952346",
+                 "lon": "-75.195816"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8845,7 +8971,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Locust Walk, 3615"
+                 "Name": "Locust Walk, 3615",
+                 "lat": "39.952338",
+                 "lon": "-75.195657"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8883,7 +9011,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Locust Walk, 3609-11"
+                 "Name": "Locust Walk, 3609-11",
+                 "lat": "39.952259",
+                 "lon": "-75.195472"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8937,7 +9067,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "ARCH, The"
+                 "Name": "ARCH, The",
+                 "lat": "39.952282",
+                 "lon": "-75.195236"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -8984,7 +9116,8 @@
                  "fill": "#555555",
                  "fill-opacity": 0.5,
                  "Name": "Locust Walk, 3537",
-                 "AKA": "M&T Building"
+                 "lat": "39.952175",
+                 "lon": "-75.194705"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9022,7 +9155,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Sweeten Alumni House, E. Craig Sweeten"
+                 "Name": "Sweeten Alumni House, E. Craig Sweeten",
+                 "lat": "39.952161",
+                 "lon": "-75.194606"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9060,7 +9195,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Jaffe History of Art Building, Elliot and Roslyn"
+                 "Name": "Jaffe History of Art Building, Elliot and Roslyn",
+                 "lat": "39.952719",
+                 "lon": "-75.192931"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9122,7 +9259,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Perelman Center for Political Science and Economics"
+                 "Name": "Perelman Center for Political Science and Economics",
+                 "lat": "39.953502",
+                 "lon": "-75.194478"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9176,7 +9315,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Franklin Building"
+                 "Name": "Franklin Building",
+                 "lat": "39.953311",
+                 "lon": "-75.193845"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9262,7 +9403,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Franklin Building Annex"
+                 "Name": "Franklin Building Annex",
+                 "lat": "39.953619",
+                 "lon": "-75.193859"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9300,7 +9443,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Institute of Contemporary Art"
+                 "Name": "Institute of Contemporary Art",
+                 "lat": "39.954175",
+                 "lon": "-75.195056"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9370,7 +9515,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Sansom Place East"
+                 "Name": "Sansom Place East",
+                 "lat": "39.954341",
+                 "lon": "-75.195035"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9472,7 +9619,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Kings Court / English College House"
+                 "Name": "Kings Court / English College House",
+                 "lat": "39.954205",
+                 "lon": "-75.194098"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9510,7 +9659,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Silverman Hall"
+                 "Name": "Silverman Hall",
+                 "lat": "39.953988",
+                 "lon": "-75.192232"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9580,7 +9731,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Gittis Hall"
+                 "Name": "Gittis Hall",
+                 "lat": "39.954168",
+                 "lon": "-75.192799"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9682,7 +9835,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Golkin Hall"
+                 "Name": "Golkin Hall",
+                 "lat": "39.953881",
+                 "lon": "-75.192911"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9736,7 +9891,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Tanenbaum Hall, Nicole E."
+                 "Name": "Tanenbaum Hall, Nicole E.",
+                 "lat": "39.954136",
+                 "lon": "-75.193446"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9790,7 +9947,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Sansom Street, 3428-36"
+                 "Name": "Sansom Street, 3428-36",
+                 "lat": "39.953577",
+                 "lon": "-75.193082"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9828,7 +9987,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Sansom Street, 3414"
+                 "Name": "Sansom Street, 3414",
+                 "lat": "39.953534",
+                 "lon": "-75.192743"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9866,7 +10027,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Walnut Street, 3401"
+                 "Name": "Walnut Street, 3401",
+                 "lat": "39.953255",
+                 "lon": "-75.192864"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -9988,7 +10151,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "McNeil Center for Early American Studies"
+                 "Name": "McNeil Center for Early American Studies",
+                 "lat": "39.953420",
+                 "lon": "-75.191665"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10026,7 +10191,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Parking Garage: Chestnut 34"
+                 "Name": "Parking Garage: Chestnut 34",
+                 "lat": "39.954764",
+                 "lon": "-75.191081"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10072,7 +10239,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "New College House at Hill Field"
+                 "Name": "New College House at Hill Field",
+                 "lat": "39.953871",
+                 "lon": "-75.190959"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10182,7 +10351,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Laboratory for Research on the Structure of Matter"
+                 "Name": "Laboratory for Research on the Structure of Matter",
+                 "lat": "39.952929",
+                 "lon": "-75.189608"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10236,7 +10407,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Singh Center for Nanotechnology, Krishna P."
+                 "Name": "Singh Center for Nanotechnology, Krishna P.",
+                 "lat": "39.952805",
+                 "lon": "-75.188925"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10334,7 +10507,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Parking Garage: Walnut 32"
+                 "Name": "Parking Garage: Walnut 32",
+                 "lat": "39.952765",
+                 "lon": "-75.188060"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10388,7 +10563,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Chancellor Street, 3216"
+                 "Name": "Chancellor Street, 3216",
+                 "lat": "39.951792",
+                 "lon": "-75.188438"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10450,7 +10627,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Palestra"
+                 "Name": "Palestra",
+                 "lat": "39.951408",
+                 "lon": "-75.188635"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10520,7 +10699,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Ringe Squash Courts"
+                 "Name": "Ringe Squash Courts",
+                 "lat": "39.950577",
+                 "lon": "-75.188814"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10566,7 +10747,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Hutchinson Gymnasium"
+                 "Name": "Hutchinson Gymnasium",
+                 "lat": "39.950936",
+                 "lon": "-75.188745"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10658,7 +10841,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Hollenback Center"
+                 "Name": "Hollenback Center",
+                 "lat": "39.947520",
+                 "lon": "-75.188454"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10728,7 +10913,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Hollenback Annex"
+                 "Name": "Hollenback Annex",
+                 "lat": "39.947259",
+                 "lon": "-75.189046"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10766,7 +10953,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "New Patient Pavilion"
+                 "Name": "New Patient Pavilion",
+                 "lat": "39.948524",
+                 "lon": "-75.191739"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10820,7 +11009,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Roberts Proton Therapy Center"
+                 "Name": "Roberts Proton Therapy Center",
+                 "lat": "39.947076",
+                 "lon": "-75.192919"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10858,7 +11049,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Smilow Center for Translational Research"
+                 "Name": "Smilow Center for Translational Research",
+                 "lat": "39.947553",
+                 "lon": "-75.193267"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10896,7 +11089,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Jordan Medical Education Center"
+                 "Name": "Jordan Medical Education Center",
+                 "lat": "39.947358",
+                 "lon": "-75.192227"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -10934,7 +11129,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Perelman Center For Advanced Medicine"
+                 "Name": "Perelman Center For Advanced Medicine",
+                 "lat": "39.947860",
+                 "lon": "-75.192543"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -11012,7 +11209,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Parking Garage: Civic Center Boulevard"
+                 "Name": "Parking Garage: Civic Center Boulevard",
+                 "lat": "39.945768",
+                 "lon": "-75.197326"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -11058,7 +11257,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "3600 Civic Center Boulevard Garage"
+                 "Name": "3600 Civic Center Boulevard Garage",
+                 "lat": "39.946161",
+                 "lon": "-75.196172"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -11116,7 +11317,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Module 7 Utility Building"
+                 "Name": "Module 7 Utility Building",
+                 "lat": "39.943944",
+                 "lon": "-75.195306"
                  },
                  "geometry": {
                  "type": "Polygon",
@@ -11170,7 +11373,9 @@
                  "stroke-opacity": 1,
                  "fill": "#555555",
                  "fill-opacity": 0.5,
-                 "Name": "Meiklejohn Stadium-Murphy Field"
+                 "Name": "Meiklejohn Stadium-Murphy Field",
+                 "lat": "39.943702",
+                 "lon": "-75.193817"
                  },
                  "geometry": {
                  "type": "Polygon",

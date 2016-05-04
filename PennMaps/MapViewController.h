@@ -11,5 +11,6 @@
 @interface MapViewController : UIViewController
 {NSTimer *_timer;}
 - (void)_timerFired:(NSTimer *)timer;
+- (void)userDidRequestRouteWithStartLat:(float)startLat StartLon:(float)startLon EndLon:(float)endLon endLat:(float)endLat;
 @end
 

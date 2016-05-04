@@ -13,29 +13,40 @@
 #import <SMCalloutView/SMCalloutView.h>
 #import "BuildingDetailViewController.h"
 #import "MapManipulations.h"
-
+#import "BusAnnotation.h"
+#import "DirectionViewController.h"
 
 static const CGFloat CalloutYOffset = 5.0f;
 
-@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UIToolbarDelegate>
+@interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic, retain) MKPolyline *routeLine; //your line
+@property (nonatomic, retain) MKPolylineView *routeLineView; //overlay view
+
 @property (strong, nonatomic) MapManipulations *manipulations;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SMCalloutView *calloutView;
 @property (nonatomic) CLLocationCoordinate2D calloutAnchor;
 @property (strong, nonatomic) UIView *emptyCalloutView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *trackingBtn;
-@property (strong, nonatomic) IBOutlet UIToolbar *toolbarTop;
 @property (nonatomic) CGPoint point;
 @property BOOL isUpdatingLocation;
-@property BOOL isPlacingBusPins;
+@property NSMutableArray *locations;
+@property NSMutableArray *filteredSearch;
+@property BOOL isFiltered;
+@property MKRoute *routeDetails;
+@property (strong, nonatomic) NSString *allSteps;
+@property MKPolyline *lastOverlay;
 @end
 
 @implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self populateSearchBar];
+    
     self.isUpdatingLocation = NO;
     self.manipulations = [[MapManipulations alloc]init];
     self.locationManager.delegate = self;
@@ -98,48 +109,161 @@ static const CGFloat CalloutYOffset = 5.0f;
 }
 
 - (void)showBusLines {
-    self.isPlacingBusPins = YES;
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     dispatch_async(backgroundQueue, ^{
-        NSDictionary *lines = [[self.manipulations getPennBusLines] valueForKey:@"result_data"];
-        for (NSDictionary *route in lines){
-            NSString *routeName = [route valueForKey:@"route_name"];
-            NSDictionary *stops = [route valueForKey:@"stops"];
+        NSDictionary *stops = [[self.manipulations getPennBusLines] valueForKey:@"result_data"];
             for (NSDictionary *stop in stops) {
                 float stopLat = [[stop valueForKey:@"Latitude"] floatValue];
                 float stopLon = [[stop valueForKey:@"Longitude"] floatValue];
-                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                BusAnnotation *annotation = [[BusAnnotation alloc] init];
+                annotation.routes = [[NSMutableArray alloc] init];
 
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     annotation.coordinate = CLLocationCoordinate2DMake(stopLat, stopLon);
                     annotation.title = [stop valueForKey:@"BusStopName"];
-                    annotation.subtitle = routeName;
-                    [self.mapView addAnnotation:annotation];
+                    annotation.color = @"Blue";
+                    NSDictionary *routes = [stop valueForKey:@"routes"];
+                    for (NSString *route in [routes allKeys]) {
+                        [annotation.routes addObject:route];
+                        [self.mapView addAnnotation:annotation];
 
-                });
-            }
+                    }
+            });
         }
+
     });
-    self.isPlacingBusPins = NO;
 }
+
+//TODO: Factor this stuff out b/c repeated in DirectionView Controller
+#pragma mark - UITableViewDelegate
+- (void)populateSearchBar {
+    self.tableView.delegate = self;
+    self.tableView.hidden = YES;
+    self.locations = [[NSMutableArray alloc] init];
+    NSURL *URL = [[NSBundle mainBundle] URLForResource:@"map" withExtension:@"geojson"];
+    NSData *data = [NSData dataWithContentsOfURL:URL];
+    NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSDictionary *formattedJSON = [JSON valueForKey:@"features"];
+    for (NSDictionary *location in formattedJSON) {
+        [self.locations addObject: [location valueForKey:@"properties"]];
+    }
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSInteger rowCount;
+    if(self.isFiltered)
+        rowCount = self.filteredSearch.count;
+    else
+        rowCount = self.locations.count;
+    
+    return rowCount;
+}
+
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableVIew cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *searchCell = [self.tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
+    if (!searchCell) {
+        searchCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"searchCell"];
+    }
+    NSDictionary *location = [[NSDictionary alloc] init];
+    if (self.isFiltered) {
+        location = self.filteredSearch[indexPath.row];
+    } else {
+        location = self.locations[indexPath.row];
+    }
+    
+    NSString *locName = [location valueForKey:@"Name"];
+    UILabel *titleLabel = (UILabel *)[searchCell viewWithTag:0];
+    titleLabel.text = locName;
+
+    return searchCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"TAOP BRING TO PLACE PLS");
+    for (NSDictionary *loc in self.locations) {
+        if ([loc valueForKey:@"Name"] == [tableView cellForRowAtIndexPath:indexPath].textLabel.text) {
+            // found building with name
+            float lat = [[loc valueForKey:@"lat"] floatValue];
+            float lon = [[loc valueForKey:@"lon"] floatValue];
+            
+            MKCoordinateRegion region;
+            
+            region.center.latitude  = lat;
+            region.center.longitude = lon;
+            
+            double radius = .01;
+            MKCoordinateSpan span;
+            span.latitudeDelta = radius / 50;
+            region.span = span;
+
+            [self.mapView setRegion:region animated:YES];
+        }
+    }
+}
+
+
+
 
 #pragma mark - MKMapViewDelegate
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    // create a proper annotation view, be lazy and don't use the reuse identifier
-    MKAnnotationView *view = [[MKAnnotationView alloc] initWithAnnotation:annotation
-                                                          reuseIdentifier:@"identifier"];
-
-    view.enabled = YES;
-    view.canShowCallout = YES;
-    
-    if (self.isPlacingBusPins) {
-        view.image = [UIImage imageNamed:@"BlueBus"];
-    } else {
-        view.image = [UIImage imageNamed:@"RedBus"];
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
     }
     
-    return view;
+    if ([annotation isKindOfClass:[BusAnnotation class]]) {
+        MKAnnotationView *view = [[MKAnnotationView alloc] initWithAnnotation:annotation
+                                                              reuseIdentifier:@"identifier"];
+        BusAnnotation *busAnnotation = view.annotation;
+        
+//        UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 50, 11)] ;
+//        lbl.backgroundColor = [UIColor blackColor];
+//        [view addSubview:lbl];
+//        view.frame = lbl.frame;
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(17,3,22,11)];
+//        label.backgroundColor = [
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = [UIColor whiteColor];
+        [label setFont:[UIFont systemFontOfSize:6 weight:100]];
+        label.tag = 42;
+        label.layer.backgroundColor = [UIColor colorWithRed:0.431 green:0.741 blue:0.98 alpha:1].CGColor; /*#6ebdfa*/
+        label.layer.borderWidth = 1.0;
+        label.layer.borderColor = [UIColor colorWithRed:0.431 green:0.741 blue:0.98 alpha:1].CGColor;
+        label.layer.cornerRadius = 4;
+        [view addSubview:label];
+//        [label release];
+        
+        view.enabled = YES;
+        view.canShowCallout = YES;
+        busAnnotation.subtitle = [busAnnotation.routes componentsJoinedByString:@", "];
+
+        if ([busAnnotation.routes containsObject:@"PennBUS East"] && [busAnnotation.routes containsObject:@"PennBUS West"]) {
+            label.frame = CGRectMake(17, 3, 42, 11);
+            view.image = [UIImage imageNamed:@"RedBlueBus"];
+            UILabel *label = (UILabel *)[view viewWithTag:42];
+            label.text = @"EAST WEST";
+        } else if ([busAnnotation.routes containsObject:@"PennBUS East"]){
+            view.image = [UIImage imageNamed:@"RedBus"];
+            UILabel *label = (UILabel *)[view viewWithTag:42];
+            label.text = @"EAST";
+        } else if ([busAnnotation.routes containsObject:@"PennBUS West"]) {
+            view.image = [UIImage imageNamed:@"BlueBus"];
+            UILabel *label = (UILabel *)[view viewWithTag:42];
+            label.text = @"WEST";
+        } else {
+//            view.image = [UIImage imageNamed:@"GrayBus"];
+            view.enabled = NO;
+            label.frame = CGRectMake(0, 0, 0, 0);
+        }
+        
+        return view;
+    }
+    
+    return nil;
 }
+
 
 - (void)trackUser {
     self.locationManager = [[CLLocationManager alloc] init];
@@ -165,8 +289,34 @@ static const CGFloat CalloutYOffset = 5.0f;
     }
 }
 
+#pragma mark - UISearchBarDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [self.tableView setHidden:NO];
+    
+}
+
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text {
+    if (text.length == 0) {
+        self.isFiltered = NO;
+    } else {
+        self.isFiltered = YES;
+        self.filteredSearch = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary* loc in self.locations){
+            NSRange nameRange = [[loc valueForKey:@"Name"] rangeOfString:text options:NSCaseInsensitiveSearch];
+//            NSRange descriptionRange = [loc.description rangeOfString:text options:NSCaseInsensitiveSearch];
+            if(nameRange.location != NSNotFound)
+            {
+                [self.filteredSearch addObject:loc];
+            }
+        }
+    }
+    
+    [self.tableView reloadData];
+}
+
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSLog(@"hi");
+    [self.searchBar endEditing:YES]; //end editing
     [searchBar resignFirstResponder];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:searchBar.text completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -265,7 +415,6 @@ static const CGFloat CalloutYOffset = 5.0f;
                     
                     // Damn you, floating point math.
                     if ((fabs(polygon.coordinate.latitude - lat) < 0.00001) && (fabs(polygon.coordinate.longitude - lon) < 0.00001)) {
-                        NSLog(@"FOUND BUILDING");
                         [self createCalloutWithLatitude:polygon.coordinate.latitude
                                           withLongitude:polygon.coordinate.longitude
                                               withTitle:buildingName];
@@ -309,6 +458,10 @@ static const CGFloat CalloutYOffset = 5.0f;
 
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+    [self.searchBar endEditing:YES];
+    if (!self.tableView.hidden) {
+        self.tableView.hidden = YES;
+    }
     if (!self.calloutView.hidden){
         if (!_timer) {
             _timer = [NSTimer scheduledTimerWithTimeInterval:0.06f
@@ -321,12 +474,27 @@ static const CGFloat CalloutYOffset = 5.0f;
 }
 
 
-// TODO: Multithreading
 -(void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    // Start timer for callout movement
     if ([_timer isValid]) {
         [_timer invalidate];
     }
     _timer = nil;
+    
+    // Show or hide annotations
+    NSArray *annotations = [_mapView annotations];
+    BusAnnotation *annotation = nil;
+    for (int i=0; i<[annotations count]; i++)
+    {
+        annotation = (BusAnnotation*)[annotations objectAtIndex:i];
+        if (_mapView.region.span.latitudeDelta > .050)
+        {
+            [[_mapView viewForAnnotation:annotation] setHidden:YES];
+        }
+        else {
+            [[_mapView viewForAnnotation:annotation] setHidden:NO];
+        }
+    }
 }
 
 - (void)_timerFired:(NSTimer *)timer {
@@ -356,6 +524,11 @@ static const CGFloat CalloutYOffset = 5.0f;
         self.calloutView.hidden = YES;
     }
 }
+- (IBAction)presentDirectionsModal:(id)sender {
+    DirectionViewController *dirView = [self.storyboard instantiateViewControllerWithIdentifier:@"DirectionViewController"];
+    dirView.parentView = self;
+    [self.navigationController presentViewController:dirView animated:YES completion:^{}];
+}
 
 - (void)disclosureTapped {
     NSLog(@"TAP!");
@@ -370,5 +543,58 @@ static const CGFloat CalloutYOffset = 5.0f;
     [self.navigationController pushViewController:detailView animated:YES];
 
 }
+
+//
+//- (void)drawBusLine {
+//    
+//    // remove polyline if one exists
+//    [self.mapView removeOverlay:self.polyline];
+//    
+//    // create an array of coordinates from allPins
+//    int i = 0;
+//    for (MKAnnotationView *currentPin in self.mapView.annotations) {
+//        coordinates[i] = currentPin.annotation.;
+//        i++;
+//    }
+//    
+//    // create a polyline with all cooridnates
+//    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:self.allPins.count];
+//    [self.mapView addOverlay:polyline];
+//    self.polyline = polyline;
+//    
+//    // create an MKPolylineView and add it to the map view
+//    self.lineView = [[MKPolylineView alloc]initWithPolyline:self.polyline];
+//    self.lineView.strokeColor = [UIColor redColor];
+//    self.lineView.lineWidth = 5;
+//    
+//}
+
+- (void)userDidRequestRouteWithStartLat:(float)startLat StartLon:(float)startLon EndLon:(float)endLon endLat:(float)endLat {
+    [self.mapView removeOverlay:self.lastOverlay];
+    MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
+    MKPlacemark *start = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(startLat, startLon) addressDictionary:NULL];
+    MKPlacemark *end   = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(endLat, endLon) addressDictionary:NULL];
+    [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:start]];
+    [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:end]];
+    directionsRequest.transportType = MKDirectionsTransportTypeWalking;
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"Error %@", error.description);
+        } else {
+            self.routeDetails = response.routes.lastObject;
+            self.lastOverlay = self.routeDetails.polyline;
+            [self.mapView addOverlay:self.lastOverlay];
+            self.allSteps = @"";
+            for (int i = 0; i < self.routeDetails.steps.count; i++) {
+                MKRouteStep *step = [self.routeDetails.steps objectAtIndex:i];
+                NSString *newStep = step.instructions;
+                self.allSteps = [self.allSteps stringByAppendingString:newStep];
+                self.allSteps = [self.allSteps stringByAppendingString:@"\n\n"];
+            }
+        }
+    }];
+}
+
 
 @end

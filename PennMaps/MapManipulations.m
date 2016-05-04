@@ -8,7 +8,7 @@
 
 #import "MapManipulations.h"
 
-#define kPennTransitEndpoint @"https://api.pennlabs.org/transit/routes"
+#define kPennTransitEndpoint @"https://api.pennlabs.org/transit/stops"
 
 @interface MapManipulations () <MKMapViewDelegate>
 @end
@@ -44,7 +44,7 @@
         return nil;
     }
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:oResponseData options:0 error:nil];
-
+//    NSLog(@"%@", JSON);
     return JSON;
 }
 

@@ -11,6 +11,8 @@
 		710D27B11CCD565E00AE0A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710D27B01CCD565E00AE0A2B /* Assets.xcassets */; };
 		714318C81CCFE87A00AFE88E /* BuildingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 714318C71CCFE87A00AFE88E /* BuildingDetailViewController.m */; };
 		71501F9A1CD55A2400EAAF4B /* MapManipulations.m in Sources */ = {isa = PBXBuildFile; fileRef = 71501F991CD55A2400EAAF4B /* MapManipulations.m */; };
+		71501FA01CD6B34700EAAF4B /* BusAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71501F9F1CD6B34700EAAF4B /* BusAnnotation.m */; };
+		7159EDCB1CD916CD00706564 /* DirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7159EDCA1CD916CD00706564 /* DirectionViewController.m */; };
 		7161EC991CCAED9400FA2877 /* map.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 7161EC981CCAED9400FA2877 /* map.geojson */; };
 		71D4F4EC1CC95C2900BF0834 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4EB1CC95C2900BF0834 /* main.m */; };
 		71D4F4EF1CC95C2900BF0834 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D4F4EE1CC95C2900BF0834 /* AppDelegate.m */; };
@@ -40,6 +42,11 @@
 		714318C71CCFE87A00AFE88E /* BuildingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingDetailViewController.m; sourceTree = "<group>"; };
 		71501F981CD55A2400EAAF4B /* MapManipulations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapManipulations.h; sourceTree = "<group>"; };
 		71501F991CD55A2400EAAF4B /* MapManipulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapManipulations.m; sourceTree = "<group>"; };
+		71501F9E1CD6B34700EAAF4B /* BusAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusAnnotation.h; sourceTree = "<group>"; };
+		71501F9F1CD6B34700EAAF4B /* BusAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusAnnotation.m; sourceTree = "<group>"; };
+		7159EDC71CD79CBA00706564 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7159EDC91CD916CD00706564 /* DirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionViewController.h; sourceTree = "<group>"; };
+		7159EDCA1CD916CD00706564 /* DirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionViewController.m; sourceTree = "<group>"; };
 		7161EC981CCAED9400FA2877 /* map.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.geojson; sourceTree = "<group>"; };
 		71D4F4E71CC95C2900BF0834 /* PennMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PennMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D4F4EB1CC95C2900BF0834 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +93,7 @@
 		5F4D219694BFDC8D01D9A57B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7159EDC71CD79CBA00706564 /* QuartzCore.framework */,
 				35C29033368BA025D6F1A522 /* libPods-PennMaps.a */,
 				EF4EAC8E44D3C4AD474F2FA2 /* libPods-PennMapsTests.a */,
 			);
@@ -148,6 +156,8 @@
 		71D4F50F1CC95C4200BF0834 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				71501F9E1CD6B34700EAAF4B /* BusAnnotation.h */,
+				71501F9F1CD6B34700EAAF4B /* BusAnnotation.m */,
 				71501F981CD55A2400EAAF4B /* MapManipulations.h */,
 				71501F991CD55A2400EAAF4B /* MapManipulations.m */,
 			);
@@ -166,6 +176,8 @@
 		71D4F5111CC95C4D00BF0834 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7159EDC91CD916CD00706564 /* DirectionViewController.h */,
+				7159EDCA1CD916CD00706564 /* DirectionViewController.m */,
 				71D4F4ED1CC95C2900BF0834 /* AppDelegate.h */,
 				71D4F4EE1CC95C2900BF0834 /* AppDelegate.m */,
 				714318C61CCFE87A00AFE88E /* BuildingDetailViewController.h */,
@@ -392,8 +404,10 @@
 				71D4F4F21CC95C2900BF0834 /* MapViewController.m in Sources */,
 				71501F9A1CD55A2400EAAF4B /* MapManipulations.m in Sources */,
 				714318C81CCFE87A00AFE88E /* BuildingDetailViewController.m in Sources */,
+				71501FA01CD6B34700EAAF4B /* BusAnnotation.m in Sources */,
 				71D4F4EF1CC95C2900BF0834 /* AppDelegate.m in Sources */,
 				71D4F4EC1CC95C2900BF0834 /* main.m in Sources */,
+				7159EDCB1CD916CD00706564 /* DirectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
